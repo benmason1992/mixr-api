@@ -1,0 +1,157 @@
+routes:
+
+api/
+api/drinks
+api/drinks/{id}
+
+
+`/api/drinks`
+
+[
+    {
+        "id":1,
+        "name": "mojito"
+    },
+    {
+        "id":2,
+        "name": "hurricane"
+    },
+    {
+        "id":3,
+        "name": "zombie"
+    },
+    {
+        "id":4,
+        "name": "cuba libre"
+    },
+    {
+        "id":5,
+        "name": "pina colada"
+    },
+    {
+        "id":6,
+        "name": "barracuda"
+    },
+    
+]
+
+`api/drinks/1`
+{
+    "id":1,
+    "name": "mojito",
+    "method": [
+        "Add sugar, mint leaves",
+        "Pour lime juice",
+        "Crush lime juice, sugar and mint leaves with a muddler",
+        "Fill the glass up with crushed ice",
+        "Pour white rum into the glass",
+        "Fill up the glass with club soda",
+        "Garnish with mint leaves and lime wedges",
+    ],
+    "ingredients": [
+        "2 parts of white rum",
+        "2 tbsp of sugar syrup",
+        "1.5 parts of lime juice",
+        "3 parts club soda",
+        "6 pcs of mint leaves and crushed ice",
+    ]
+    "image": "URL",
+},
+
+{
+    "id":2,
+    "name": "hurricane",
+    "method": [
+        "Fill up the shaker with ice cubes",
+        "Add lemon juice, grenadine, sugar syrup, orange juice, overproof rum, white rum, dark rum to the shaker",
+        "Shake well",
+        "Fill up the glass with ice",
+        "Strain into the glass",
+        "Garnish with orange wedge",
+    ],
+    "ingredients": [
+        "1 part lemon juice",
+        "1.5 parts of white rum",
+        "1.5 parts of overproof rum",
+        "1.5 parts of dark rum",
+        "1 dash of grenadine",
+        "1 tbsp of sugar syrup",
+        "3 parts of orange juice and ice cubes",
+
+    ]
+    "image": "URL",
+},
+{
+    "id":3,
+    "name": "zombie",
+    "method": [
+        "Fill up the glass with ice",
+        "Fill up the shaker with ice",
+        "Pour pineapple juice, orange juice, gold rum, Angostura bitters, white rum into the shaker",
+        "Shake well",
+        "Strain into the glass",
+        "Garnish with pineapple and orange",
+
+    ],
+    "ingredients": [
+        "1 part white rum",
+        "1 dash of Angostura bitters",
+        "1 part gold rum",
+        "1 part lime juice",
+        "1 part pineapple juice",
+        "0.5 parts of overproof rum",
+        "1 part of dark rum and crushed ice",
+    ]
+    "image": "URL",
+},
+{
+    "id":4,
+    "name": "cuba libre",
+    "method": [
+        "Fill up the glass with ice",
+        "Pour lime juice and white rum into the glass",
+        "Fill up the glass with cola",
+        "Garnish with a lime wedge",
+    ],
+    "ingredients": [
+        "2.5 parts of white rum",
+        "0.5 parts of lime juice",
+        "6 parts cola and ice cubes",
+    ]
+    "image": "URL",
+},
+{
+    "id":5,
+    "name": "pina colada",
+    "method": [
+        "Add ice to the blender",
+        "Add pineapple juice, coconut liquor and white rum to the blender",
+        "Blend together",
+        "Strain into the glass",
+        "Garnish with a cocktail cherry and pineapple wedges",
+    ],
+    "ingredients": [
+        "1.5 parts of white rum",
+        "1.5 parts of coconut milk",
+        "4.5 parts of pineapple juice and crushed ice",
+    ]
+    "image": "URL",
+},
+{
+    "id":6,
+    "name": "barracuda",
+    "method": [
+        "Pour pineapple juice, lime juice, gold rum, Galliano into the glass",
+        "Stir together",
+        "Fill up the glass with prosecco",
+        "Garnish with a cocktail cherry",
+    ],
+    "ingredients": [
+        "2.5 parts of gold rum",
+        "1 part of Galliano",
+        "3 parts of pineapple juice",
+        "1 dash of lime juice",
+        "1 part prosecco",
+    ]
+    "image": "URL",
+}
