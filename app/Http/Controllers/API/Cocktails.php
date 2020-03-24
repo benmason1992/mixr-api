@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Cocktail;
 use App\Http\Resources\API\CocktailResource;
+use App\Http\Resources\API\CocktailListResource;
 use App\Http\Requests\API\CocktailRequest;
 
 class Cocktails extends Controller
@@ -17,7 +18,7 @@ class Cocktails extends Controller
      */
     public function index()
     {
-        return Cocktail::all();
+        return CocktailListResource::collection(Cocktail::all());
     }
 
     /**
@@ -26,12 +27,11 @@ class Cocktails extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(CocktailRequest $request)
     {
-        $data = $request->all();
-        // store article in variable
+        $data = $request->only(["name", "method", "image"]);        
         $cocktail = Cocktail::create($data);
-        // return the resource
+        var_dump($data);
         return new CocktailResource($cocktail);
     }
 
@@ -56,7 +56,11 @@ class Cocktails extends Controller
      */
     public function update(CocktailRequest $request, Cocktail $cocktail)
     {
-        //
+        $data = $request->only(["name", "method", "image"]);
+        
+        $cocktail->fill($data)->save();
+        
+        return new CocktailResource($cocktail);
     }
 
     /**
@@ -65,8 +69,9 @@ class Cocktails extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Cocktail $cocktail)
     {
-        //
+        $cocktail->delete();
+        return response(null, 204);
     }
 }
