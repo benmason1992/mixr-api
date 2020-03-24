@@ -7,8 +7,6 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\API\Cocktails;
 use App\Http\Requests\API\CocktailRequest;
 
-
-
 Route::group(["prefix" => "cocktails"], function () {
     Route::get("", [Cocktails::class, "index"]);
     Route::post("", [Cocktails::class, "store"]);
