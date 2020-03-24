@@ -5,6 +5,8 @@ namespace App\Http\Controllers\API;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Cocktail;
+use App\Http\Resources\API\CocktailResource;
+use App\Http\Requests\API\CocktailRequest;
 
 class Cocktails extends Controller
 {
@@ -26,7 +28,11 @@ class Cocktails extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $data = $request->all();
+        // store article in variable
+        $cocktail = Cocktail::create($data);
+        // return the resource
+        return new CocktailResource($cocktail);
     }
 
     /**
@@ -35,10 +41,11 @@ class Cocktails extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
-    {
-        //
-    }
+    public function show(Cocktail $cocktail)
+        {
+        // return the resource
+        return new CocktailResource($cocktail);
+        }
 
     /**
      * Update the specified resource in storage.
@@ -47,7 +54,7 @@ class Cocktails extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(CocktailRequest $request, Cocktail $cocktail)
     {
         //
     }
