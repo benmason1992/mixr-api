@@ -8,6 +8,8 @@ use Illuminate\Support\Collection;
 
 class Cocktail extends Model
 {
+	protected $fillable = ["name", "method", "image"]; // sets which fields can be provided by the user/API request
+
     public function ingredients() {
         return $this->belongsToMany(Ingredient::class);
     }

@@ -57,7 +57,7 @@ class Cocktails extends Controller
     public function update(CocktailRequest $request, Cocktail $cocktail)
     {
         $data = $request->only(["name", "method", "image"]);
-        dd($data);
+        
         $cocktail->fill($data)->save();
         
         return new CocktailResource($cocktail);
