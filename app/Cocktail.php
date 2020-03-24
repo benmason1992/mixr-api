@@ -11,5 +11,9 @@ class Cocktail extends Model
         return $this->belongsToMany(Ingredient::class);
     }
 
-    public function setIngredients(array $ingredients) :
+    public function setIngredients(array $ingredients) {
+        // update pivot table with tag ids
+			$this->ingredients()->sync($ingredients->pluck('id')->all());
+			return $this;
+    }
 }

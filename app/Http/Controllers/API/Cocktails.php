@@ -37,7 +37,7 @@ class Cocktails extends Controller
      */
     public function show($id)
     {
-        //
+        return Cocktail::find($id);
     }
 
     /**

@@ -9,7 +9,7 @@ class Ingredient extends Model
 {
     public $timestamps = false;
     
-    public function ingredients() {
+    public function cocktails() {
         return $this->belongsToMany(Cocktail::class);
     }
 }
