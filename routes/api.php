@@ -18,7 +18,6 @@ Route::group(["prefix" => "cocktails"], function () {
         Route::put("", [Cocktails::class, "update"]);
         Route::delete("", [Cocktails::class, "destroy"]);    
     });
-
 });
 
 
