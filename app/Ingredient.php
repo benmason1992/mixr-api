@@ -8,6 +8,7 @@ use App\Cocktail;
 
 class Ingredient extends Model
 {
+    protected $fillable = ["ingredient"];
     public $timestamps = false;
     public function cocktails() {
         return $this->belongsToMany(Cocktail::class);

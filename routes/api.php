@@ -20,11 +20,12 @@ Route::group(["prefix" => "cocktails"], function () {
     });
 });
 
-Route::group(["prefix" => "alcohols"], function () {
-    Route::get("", [Ingredients::class, "index"]);
+Route::group(["prefix" => "ingredients"], function () {
+    Route::get("/{ingredient}", [Ingredients::class, "show"]);
+    Route::post("", [Ingredients::class, "store"]);
 
     Route::group(["prefix" => "{ingredient}"], function () {
-        Route::get("", [Ingredients::class, "show"]);
+        Route::delete("", [Ingredients::class, "destroy"]);    
     });
 });
 

@@ -3,7 +3,7 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
-use Illuminte\Support\Collection;
+use Illuminate\Support\Collection;
 use App\Ingredient;
 
 class Cocktail extends Model
@@ -14,10 +14,13 @@ class Cocktail extends Model
         return $this->belongsToMany(Ingredient::class);
     }
 
-    public function setIngredients(Collection $ingredients)
+    public function setIngredients($ingredients)
 		{
+			
+			$ingredientCollection = new Collection($ingredients);
+			// dd($ingredientCollection->pluck('id')->all());
 			// update pivot table with tag ids
-			$this->ingredients()->sync($ingredients->pluck('id')->all());
+			$this->ingredients()->sync($ingredientCollection);
 			return $this;
 		}
 

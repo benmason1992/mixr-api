@@ -5,6 +5,7 @@ namespace App\Http\Controllers\API;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Cocktail;
+use Illuminate\Support\Collection;
 use App\Http\Resources\API\CocktailResource;
 use App\Http\Resources\API\CocktailListResource;
 use App\Http\Requests\API\CocktailRequest;
@@ -31,6 +32,7 @@ class Cocktails extends Controller
     {
         $data = $request->only(["name", "method", "image"]);        
         $cocktail = Cocktail::create($data);
+        $cocktail->setIngredients(new Collection ($request ["ingredients"]));
         return new CocktailResource($cocktail);
     }
 
