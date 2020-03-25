@@ -44,7 +44,7 @@ class Ingredients extends Controller
      */
     public function show(Ingredient $ingredient)
     {
-        return new IngredientResource($ingredient->cocktails);
+        return $ingredient->cocktails;
         
     }
 
