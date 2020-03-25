@@ -5,9 +5,8 @@ namespace App\Http\Controllers\API;
 use Illuminate\Http\Request;
 use App\Http\Resources\API\IngredientResource;
 use App\Http\Resources\API\IngredientListResource;
+use App\Http\Requests\API\IngredientRequest;
 
-use App\Http\Controllers\Controller;
-use App\Ingredient;
 
 
 class Ingredients extends Controller
@@ -28,9 +27,11 @@ class Ingredients extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(IngredientRequest $request)
     {
-        //
+        $data = $request->only(["ingredient"]);        
+        $ingredient = Ingredient::create($data);
+        return new IngredientResource($ingredient);
     }
 
     /**
@@ -41,7 +42,8 @@ class Ingredients extends Controller
      */
     public function show(Ingredient $ingredient)
     {
-        return new IngredientResource($ingredient);
+        return $ingredient->cocktails;
+        
     }
 
     /**
@@ -51,9 +53,11 @@ class Ingredients extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(IngredientRequest $request)
     {
-        //
+        $data = $request->only(["ingredient"]);        
+        $cocktail = Cocktail::create($data);
+        return new CocktailResource($cocktail);
     }
 
     /**
@@ -62,8 +66,9 @@ class Ingredients extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Ingredient $ingredient)
     {
-        //
+        $ingredient->delete();
+        return response(null, 204);
     }
 }

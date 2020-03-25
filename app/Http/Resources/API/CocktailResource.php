@@ -20,7 +20,6 @@ class CocktailResource extends JsonResource
             "method" => $this->method, 
             "image" => $this->image,
             "ingredients" => $this->ingredients
-            // "ingredients" => new IngredientListResource($this->ingredients)
             ];
     }
 }
