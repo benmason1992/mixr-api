@@ -31,7 +31,6 @@ class Cocktails extends Controller
     {
         $data = $request->only(["name", "method", "image"]);        
         $cocktail = Cocktail::create($data);
-        var_dump($data);
         return new CocktailResource($cocktail);
     }
 
@@ -57,9 +56,7 @@ class Cocktails extends Controller
     public function update(CocktailRequest $request, Cocktail $cocktail)
     {
         $data = $request->only(["name", "method", "image"]);
-        
         $cocktail->fill($data)->save();
-        
         return new CocktailResource($cocktail);
     }
 
