@@ -3,8 +3,8 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminte\Support\Collection;
 use App\Ingredient;
-use Illuminate\Support\Collection;
 
 class Cocktail extends Model
 {
