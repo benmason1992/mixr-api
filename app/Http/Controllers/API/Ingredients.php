@@ -8,6 +8,10 @@ use App\Ingredient;
 use App\Http\Resources\API\IngredientResource;
 use App\Http\Resources\API\IngredientListResource;
 
+use App\Http\Controllers\Controller;
+use App\Ingredient;
+
+
 class Ingredients extends Controller
 {
     /**
