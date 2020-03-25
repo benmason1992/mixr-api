@@ -3,6 +3,7 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminte\Support\Collection;
 use App\Cocktail;
 
 class Ingredient extends Model

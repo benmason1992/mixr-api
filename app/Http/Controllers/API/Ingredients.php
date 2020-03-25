@@ -1,8 +1,12 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\API;
 
+use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use App\Ingredient;
+use App\Http\Resources\API\IngredientResource;
+use App\Http\Resources\API\IngredientListResource;
 
 class Ingredients extends Controller
 {
@@ -13,7 +17,7 @@ class Ingredients extends Controller
      */
     public function index()
     {
-        //
+        return IngredientListResource::collection(Ingredient::all());
     }
 
     /**
@@ -33,9 +37,9 @@ class Ingredients extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Ingredient $ingredient)
     {
-        //
+        return new IngredientResource($ingredient);
     }
 
     /**
