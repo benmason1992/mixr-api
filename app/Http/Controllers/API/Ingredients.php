@@ -2,10 +2,13 @@
 
 namespace App\Http\Controllers\API;
 
+use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Http\Resources\API\IngredientResource;
 use App\Http\Resources\API\IngredientListResource;
 use App\Http\Requests\API\IngredientRequest;
+use App\Ingredient;
+
 
 
 
@@ -42,7 +45,9 @@ class Ingredients extends Controller
      */
     public function show(Ingredient $ingredient)
     {
-        return $ingredient->cocktails;
+        // return $ingredient->cocktails;
+        
+        return new IngredientResource($ingredient);
         
     }
 
