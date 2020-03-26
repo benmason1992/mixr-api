@@ -15,6 +15,7 @@ class CocktailListResource extends JsonResource
     public function toArray($request)
     {
         return [
+            "id" => $this->id,
             "name" => $this->name,
             "method" => $this->method,
             "image" => $this->image,

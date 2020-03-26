@@ -10,9 +10,6 @@ use App\Http\Requests\API\IngredientRequest;
 use App\Http\Resources\API\CocktailResource;
 use App\Ingredient;
 
-
-
-
 class Ingredients extends Controller
 {
     /**
