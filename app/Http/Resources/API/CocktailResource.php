@@ -21,7 +21,9 @@ class CocktailResource extends JsonResource
         return [
             "id" => $this->id,
             "name" => $this->name,
-            "method" => preg_split("/[.,]\s/", $this->method),
+            "method" => array_map(function($sentence) {
+                return strtoupper($sentence[0]) . substr($sentence, 1);
+            },preg_split("/[.,]\s/", $this->method)),
             "image" => $this->image,
             "ingredients" => $this->ingredients->map(function ($ingredient) {
                 return new IngredientResource($ingredient);
