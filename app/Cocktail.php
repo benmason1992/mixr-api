@@ -10,6 +10,8 @@ class Cocktail extends Model
 {
 	protected $fillable = ["name", "method", "image"]; // sets which fields can be provided by the user/API request
 
+	// protected $hidden = ['pivot'];
+
     public function ingredients() {
         return $this->belongsToMany(Ingredient::class);
     }
