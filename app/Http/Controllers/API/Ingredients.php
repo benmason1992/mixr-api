@@ -8,6 +8,7 @@ use App\Ingredient;
 use App\Http\Resources\API\IngredientResource;
 use App\Http\Resources\API\IngredientListResource;
 use App\Http\Requests\API\IngredientRequest;
+use App\Http\Resources\API\CocktailResource;
 
 
 
@@ -44,7 +45,13 @@ class Ingredients extends Controller
      */
     public function show(Ingredient $ingredient)
     {
-        return $ingredient->cocktails;
+        $cocktails = $ingredient->cocktails;
+        $result = $cocktails->map(function($cocktail){
+            return new CocktailResource($cocktail);
+        });
+
+        
+        return $result;
         // return new IngredientResource($ingredient);
 
         

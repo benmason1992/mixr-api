@@ -3,7 +3,10 @@
 namespace App\Http\Resources\API;
 
 use Illuminate\Http\Resources\Json\JsonResource;
+use App\Http\Resources\API\IngredientResource;
+
 // use App\Http\Resources\API\IngredientListResource;
+
 
 class CocktailResource extends JsonResource
 {
@@ -19,7 +22,9 @@ class CocktailResource extends JsonResource
             "name" => $this->name,
             "method" => $this->method, 
             "image" => $this->image,
-            "ingredients" => $this->ingredients
+            "ingredients" => $this->ingredients->map(function ($ingredient) {
+                return new IngredientResource($ingredient);
+            })
             ];
     }
 }
