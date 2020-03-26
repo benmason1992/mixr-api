@@ -4,11 +4,12 @@ namespace App\Http\Controllers\API;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use App\Ingredient;
 use App\Http\Resources\API\IngredientResource;
 use App\Http\Resources\API\IngredientListResource;
 use App\Http\Requests\API\IngredientRequest;
 use App\Http\Resources\API\CocktailResource;
+use App\Ingredient;
+
 
 
 

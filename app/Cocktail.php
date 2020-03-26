@@ -13,6 +13,7 @@ class Cocktail extends Model
 	// protected $hidden = ['pivot'];
 
     public function ingredients() {
+
         return $this->belongsToMany(Ingredient::class);
     }
 
